@@ -180,7 +180,7 @@ body {
 
 @media (max-width: 480px) {
     .hero-section {
-        background-image: url('img/mobile.jpg'); /* Ensure it's applied to smaller phones too */
+        background-image: url('img/mobile.png'); /* Ensure it's applied to smaller phones too */
         background-position: center; /* Fine-tune for very small screens if needed */
         height: 60vh; /* Further adjust height for smaller phones */
     }
