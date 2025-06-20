@@ -149,6 +149,7 @@ body {
     border-top: 1px solid #a87f4c;
 }
 
+/* Media Queries for Responsive Design */
 @media (max-width: 768px) {
     .section-title {
         font-size: 2.5rem;
@@ -166,5 +167,19 @@ body {
     .header-nav {
         position: static;
         width: auto;
+    }
+
+    /* Adjustments for the hero section background image on mobile */
+    .hero-section {
+        background-size: cover;
+        background-position: center top; /* Focuses on the top part of the image for mobile */
+        height: 70vh; /* Adjust height for typical mobile screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        background-position: center top; /* Fine-tune for very small screens */
+        height: 60vh; /* Further adjust height for smaller phones */
     }
 }
