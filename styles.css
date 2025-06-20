@@ -182,6 +182,6 @@ body {
     .hero-section {
         background-image: url('img/mobile.png'); /* Ensure it's applied to smaller phones too */
         background-position: center; /* Fine-tune for very small screens if needed */
-        height: 60vh; /* Further adjust height for smaller phones */
+        height: 70vh; /* Further adjust height for smaller phones */
     }
 }
