@@ -6,7 +6,7 @@ body {
 }
 
 .hero-section {
-    background-image: url('img/theCastle.jpg');
+    background-image: url('img/theCastle.jpg'); /* Default for larger screens (PC) */
     background-size: cover;
     background-position: center;
     height: 109vh;
@@ -169,17 +169,19 @@ body {
         width: auto;
     }
 
-    /* Adjustments for the hero section background image on mobile */
+    /* Mobile specific background image for hero section */
     .hero-section {
+        background-image: url('img/theCastle.jpg'); /* Your provided image */
         background-size: cover;
-        background-position: center top; /* Focuses on the top part of the image for mobile */
+        background-position: center; /* Adjust as needed: 'center top', 'center bottom' */
         height: 70vh; /* Adjust height for typical mobile screens */
     }
 }
 
 @media (max-width: 480px) {
     .hero-section {
-        background-position: center top; /* Fine-tune for very small screens */
+        background-image: url('img/mobile.jpg'); /* Ensure it's applied to smaller phones too */
+        background-position: center; /* Fine-tune for very small screens if needed */
         height: 60vh; /* Further adjust height for smaller phones */
     }
 }
