@@ -430,6 +430,38 @@ body {
     transform: translateX(0); /* Slide into position */
 }
 
+/* Specific styling for the Table Number Input */
+#table-number {
+    flex-grow: 1;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    background-color: #f8f8f8;
+    color: #1a0f0a;
+    border: 1px solid #ccc;
+    font-size: 1.1rem;
+    outline: none;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#table-number:focus {
+    border-color: #a87f4c;
+    box-shadow: 0 0 0 3px rgba(168, 127, 76, 0.3), inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+/* Ensure label and input align well within the order modal */
+#order-modal .flex.items-center.mb-6 { /* Target the container div */
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+#order-modal .flex.items-center.mb-6 label {
+    min-width: 120px;
+    text-align: right;
+}
+
 
 /* --- Media Queries for Responsive Design --- */
 @media (max-width: 768px) {
@@ -509,6 +541,8 @@ body {
         white-space: normal; /* Allow wrapping on small screens */
         max-width: calc(100% - 2rem); /* Max width to prevent overflow */
         text-align: center;
+        padding: 0.6rem 1rem; /* More compact padding for toast on mobile */
+        font-size: 0.9rem; /* Smaller font for toast on mobile */
     }
 
     #toast-notification.opacity-0 {
@@ -516,6 +550,22 @@ body {
     }
     #toast-notification.opacity-100 {
         transform: translateX(0); /* Just fade in on mobile */
+    }
+
+    /* Basket icon touch target on mobile */
+    #basket-icon {
+        padding: 1.25rem; /* More padding for easier tap */
+    }
+    #basket-icon i {
+        font-size: 2rem; /* Keep icon size good */
+    }
+
+    /* Table Number Input on mobile */
+    #order-modal .flex.items-center.mb-6 label {
+        min-width: unset; /* Remove min-width on tablets/smaller screens */
+        text-align: center; /* Center label on small screens */
+        width: 100%; /* Make label take full width */
+        margin-bottom: 0.5rem; /* Add space below label */
     }
 }
 
@@ -548,8 +598,8 @@ body {
     #basket-icon {
         bottom: 1rem;
         right: 1rem;
-        padding: 0.8rem;
-        font-size: 1.5rem;
+        padding: 0.8rem; /* Make it smaller to fit better */
+        font-size: 1.5rem; /* Smaller icon too */
     }
     #basket-count {
         height: 18px;
