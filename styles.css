@@ -417,9 +417,9 @@ body {
     
     background-color: #a87f4c; /* Your accent color */
     color: white;
-    white-space: nowrap; /* Prevent text from wrapping too early */
+    white-space: nowrap; /* Prevent text from wrapping too early on desktop */
 
-    /* Animation properties */
+    /* Animation properties for desktop */
     opacity: 0; /* Hidden by default */
     transform: translateX(20px); /* Starts slightly to the right */
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -532,26 +532,6 @@ body {
         height: 250px; /* Adjust carousel height for tablets */
     }
 
-    /* Adjust toast notification for smaller screens */
-    #toast-notification {
-        bottom: 1rem; /* Slightly lower on mobile */
-        right: 1rem; /* Closer to the edge */
-        left: auto; /* Ensure it stays to the right */
-        transform: translateX(0); /* Disable initial translateX for simple fade if space is tight */
-        white-space: normal; /* Allow wrapping on small screens */
-        max-width: calc(100% - 2rem); /* Max width to prevent overflow */
-        text-align: center;
-        padding: 0.6rem 1rem; /* More compact padding for toast on mobile */
-        font-size: 0.9rem; /* Smaller font for toast on mobile */
-    }
-
-    #toast-notification.opacity-0 {
-        transform: translateX(0); /* Just fade out on mobile */
-    }
-    #toast-notification.opacity-100 {
-        transform: translateX(0); /* Just fade in on mobile */
-    }
-
     /* Basket icon touch target on mobile */
     #basket-icon {
         padding: 1.25rem; /* More padding for easier tap */
@@ -566,6 +546,47 @@ body {
         text-align: center; /* Center label on small screens */
         width: 100%; /* Make label take full width */
         margin-bottom: 0.5rem; /* Add space below label */
+    }
+
+    /* --- TOAST NOTIFICATION MODIFICATION FOR MOBILE --- */
+    #toast-notification {
+        bottom: 1rem; /* Adjust bottom distance from viewport edge */
+        /* Instead of 'right', let's use 'left' with a calc for consistent offset from right */
+        right: auto; /* Reset right property */
+        left: 1rem; /* Give it a consistent left padding from the edge */
+        
+        /* The width should accommodate content but not overflow */
+        max-width: calc(100% - 2rem); /* 100% minus left and right padding */
+        
+        white-space: normal; /* Allow text to wrap on multiple lines */
+        text-align: center; /* Center the text */
+        
+        /* Simpler fade animation for mobile to avoid transform issues with auto width/positioning */
+        transform: none; /* Remove translateX transform */
+        transition: opacity 0.3s ease-in-out; /* Only opacity transition */
+        
+        padding: 0.6rem 1rem; /* More compact padding for toast on mobile */
+        font-size: 0.9rem; /* Smaller font for toast on mobile */
+
+        /* To place it precisely left of the icon, we need to know the icon's width.
+           Let's aim for 'right' again but with a dynamic calculation or a fixed value
+           that accounts for the icon. Given the complexity of precise dynamic calc
+           with mixed units, let's simplify to a more robust fixed offset or center.
+           For "left of icon", 'right' is actually the best property.
+           Let's re-evaluate the right property: */
+        right: calc(32px + 2rem + 0.5rem); /* icon-right-offset (tailwind p-8 = 32px) + icon-width (approx 2rem or 32px) + desired-gap (0.5rem or 8px) = 72px */
+        /* Let's try 5rem (80px) from right for simple placement.
+           This means the left edge of the toast will start from `right: 5rem`. */
+        right: 5rem; /* This places its right edge 5rem from viewport right edge */
+        left: unset; /* Reset left from the previous attempt */
+    }
+
+    /* On mobile, we only need opacity transition */
+    #toast-notification.opacity-0 {
+        transform: none; /* No transform when hidden */
+    }
+    #toast-notification.opacity-100 {
+        transform: none; /* No transform when visible */
     }
 }
 
@@ -605,5 +626,19 @@ body {
         height: 18px;
         width: 18px;
         font-size: 0.65rem;
+    }
+
+    /* Further refine toast for very small screens if needed, 
+       but the 768px query should handle most phones. */
+    #toast-notification {
+        /* On very small phones, it might be better to just center it horizontally
+           if 'right' causes issues, or make it narrower */
+        right: 1rem; /* keep it fixed relative to right edge */
+        max-width: calc(100% - 2rem); /* Ensure it stays within bounds */
+        /* If centering is preferred on very small screens: */
+        /* left: 50%;
+           transform: translateX(-50%);
+           right: auto;
+           white-space: normal; */
     }
 }
