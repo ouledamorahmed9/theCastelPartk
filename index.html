@@ -5,21 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>The Castle Park - Menu</title>
 
-    <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
 
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
 
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet"/>
 
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-    <!-- Header Navigation -->
     <header class="header-nav">
         <nav class="container mx-auto flex flex-col md:flex-row items-center justify-between">
             <div class="header-logo">THE CASTLE PARK</div>
@@ -32,16 +27,10 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-overlay"></div>
-        <!-- <div class="z-10 relative text-center">
-            <h1 class="font-['Playfair_Display'] text-6xl text-white mb-4">ENJOY YOUR MEAL</h1>
-            <p class="text-xl text-gray-300">Discover our exquisite menu and delightful coffee creations.</p>
-        </div> -->
     </section>
 
-    <!-- Plates Section -->
     <section id="plates" class="section-container">
         <div class="flex items-center justify-center mb-6">
             <span class="text-3xl text-[#a87f4c] mr-4"><i class="fas fa-star"></i></span>
@@ -49,15 +38,13 @@
             <span class="text-3xl text-[#a87f4c] ml-4"><i class="fas fa-star"></i></span>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 menu-grid">
-            <!-- Sample Items -->
-            <div class="menu-item-card"><img src="img/OurPlate4.webp" alt="Steak" class="menu-item-image"><div class="menu-item-info"><span class="menu-item-name">Steak</span><span class="menu-item-price">9 DT</span></div></div>
-            <div class="menu-item-card"><img src="img/OurPlate1.jpg" alt="Pasta" class="menu-item-image"><div class="menu-item-info"><span class="menu-item-name">Pasta</span><span class="menu-item-price">9 DT</span></div></div>
-            <div class="menu-item-card"><img src="img/OurPlate2.jpg" alt="Fried Rice" class="menu-item-image"><div class="menu-item-info"><span class="menu-item-name">Fried Rice</span><span class="menu-item-price">9 DT</span></div></div>
-            <div class="menu-item-card"><img src="img/OurPlate3.jpg" alt="Lasagna" class="menu-item-image"><div class="menu-item-info"><span class="menu-item-name">Lasagna</span><span class="menu-item-price">9 DT</span></div></div>
+            <div class="menu-item-card" data-name="Steak" data-price="9" data-image="img/OurPlate4.webp" data-description="A perfectly grilled steak, served with a side of crispy fries and fresh vegetables. Cooked to your preference."></div>
+            <div class="menu-item-card" data-name="Pasta" data-price="9" data-image="img/OurPlate1.jpg" data-description="Delicious pasta tossed in a rich tomato sauce with fresh basil and parmesan cheese."></div>
+            <div class="menu-item-card" data-name="Fried Rice" data-price="9" data-image="img/OurPlate2.jpg" data-description="Savory fried rice with a mix of fresh vegetables, tender chicken, and a hint of soy."></div>
+            <div class="menu-item-card" data-name="Lasagna" data-price="9" data-image="img/OurPlate3.jpg" data-description="Layers of rich meat sauce, creamy béchamel, and al dente pasta, baked to perfection."></div>
         </div>
     </section>
 
-    <!-- Drinks Section -->
     <section id="drinks" class="section-container">
         <div class="flex items-center justify-center mb-6">
             <span class="text-3xl text-[#a87f4c] mr-4"><i class="fas fa-star"></i></span>
@@ -65,15 +52,13 @@
             <span class="text-3xl text-[#a87f4c] ml-4"><i class="fas fa-star"></i></span>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 menu-grid">
-            <!-- Sample Items -->
-            <div class="menu-item-card"><img src="img/Coffee.jpg" alt="Coffee" class="menu-item-image"><div class="menu-item-info"><span class="menu-item-name">Coffee</span><span class="menu-item-price">9 DT</span></div></div>
-            <div class="menu-item-card"><img src="img/Mocktail.jpg" alt="Mocktail" class="menu-item-image"><div class="menu-item-info"><span class="menu-item-name">Mocktail</span><span class="menu-item-price">9 DT</span></div></div>
-            <div class="menu-item-card"><img src="img/Juice.jpg" alt="Juice" class="menu-item-image"><div class="menu-item-info"><span class="menu-item-name">Juice</span><span class="menu-item-price">9 DT</span></div></div>
-            <div class="menu-item-card"><img src="img/Soda.jpg" alt="Soda" class="menu-item-image"><div class="menu-item-info"><span class="menu-item-name">Soda</span><span class="menu-item-price">9 DT</span></div></div>
+            <div class="menu-item-card" data-name="Coffee" data-price="9" data-image="img/Coffee.jpg" data-description="A rich and aromatic cup of freshly brewed coffee, perfect to start your day or as an after-meal treat."></div>
+            <div class="menu-item-card" data-name="Mocktail" data-price="9" data-image="img/Mocktail.jpg" data-description="Refreshing non-alcoholic mocktail, a delightful blend of tropical fruits and sparkling water."></div>
+            <div class="menu-item-card" data-name="Juice" data-price="9" data-image="img/Juice.jpg" data-description="Freshly squeezed fruit juice, choose from orange, apple, or a mix of berries."></div>
+            <div class="menu-item-card" data-name="Soda" data-price="9" data-image="img/Soda.jpg" data-description="Classic refreshing soda, available in various popular flavors."></div>
         </div>
     </section>
 
-    <!-- Dessert Section -->
     <section id="dessert" class="section-container">
         <div class="flex items-center justify-center mb-6">
             <span class="text-3xl text-[#a87f4c] mr-4"><i class="fas fa-star"></i></span>
@@ -81,15 +66,13 @@
             <span class="text-3xl text-[#a87f4c] ml-4"><i class="fas fa-star"></i></span>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 menu-grid">
-            <!-- Sample Items -->
-            <div class="menu-item-card"><img src="img/creme.jpg" alt="Creme Brulee" class="menu-item-image"><div class="menu-item-info"><span class="menu-item-name">Creme Brulee</span><span class="menu-item-price">9 DT</span></div></div>
-            <div class="menu-item-card"><img src="img/Pudding.jpg" alt="Pudding" class="menu-item-image"><div class="menu-item-info"><span class="menu-item-name">Pudding</span><span class="menu-item-price">9 DT</span></div></div>
-            <div class="menu-item-card"><img src="img/Cookies.jpg" alt="Cookies" class="menu-item-image"><div class="menu-item-info"><span class="menu-item-name">Cookies</span><span class="menu-item-price">9 DT</span></div></div>
-            <div class="menu-item-card"><img src="img/Ice Cream.jpg" alt="Ice Cream" class="menu-item-image"><div class="menu-item-info"><span class="menu-item-name">Ice Cream</span><span class="menu-item-price">9 DT</span></div></div>
+            <div class="menu-item-card" data-name="Creme Brulee" data-price="9" data-image="img/creme.jpg" data-description="Classic French dessert with a rich custard base topped with a layer of hardened caramelized sugar."></div>
+            <div class="menu-item-card" data-name="Pudding" data-price="9" data-image="img/Pudding.jpg" data-description="Creamy and delicious pudding, a comforting sweet treat."></div>
+            <div class="menu-item-card" data-name="Cookies" data-price="9" data-image="img/Cookies.jpg" data-description="Freshly baked assorted cookies, perfect with coffee or tea."></div>
+            <div class="menu-item-card" data-name="Ice Cream" data-price="9" data-image="img/Ice Cream.jpg" data-description="A scoop of rich, creamy ice cream. Choose from vanilla, chocolate, or strawberry."></div>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <h2 class="section-title">Our Contact</h2>
         <div class="contact-info">
@@ -103,12 +86,72 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
-        &copy; 2023 The Castle Park. All rights reserved.
+        &copy; <span id="current-year"></span> The Castle Park. All rights reserved.
     </footer>
 
-    <!-- Custom JS -->
+    <div id="basket-icon" class="fixed bottom-8 right-8 bg-black hover:bg-gray-800 text-white p-4 rounded-full shadow-lg cursor-pointer hover:scale-105 transition-all z-50">
+        <i class="fas fa-shopping-basket text-2xl"></i>
+        <span id="basket-count" class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center -mt-1 -mr-1 hidden">0</span>
+    </div>
+
+    <div id="product-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden p-4">
+        <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-2xl transform scale-95 transition-transform duration-300">
+            <div class="flex justify-end">
+                <button id="close-product-modal" class="text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            <div class="md:flex">
+                <div class="md:w-1/2 flex justify-center items-center mb-4 md:mb-0">
+                    <img id="modal-product-image" src="" alt="Product Image" class="w-full h-auto max-h-80 object-cover rounded-md">
+                </div>
+                <div class="md:w-1/2 md:pl-6 text-gray-800">
+                    <h3 id="modal-product-name" class="font-['Playfair_Display'] text-3xl text-gray-900 mb-2"></h3>
+                    <p id="modal-product-description" class="text-gray-600 text-sm mb-4"></p>
+                    <p class="text-2xl text-[#a87f4c] font-bold mb-6"><span id="modal-product-price"></span> DT</p>
+                    <button id="add-to-basket-btn" class="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
+                        <i class="fas fa-cart-plus"></i> Add to Basket
+                    </button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="order-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden p-4">
+        <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-2xl transform scale-95 transition-transform duration-300">
+            <div class="flex justify-end">
+                <button id="close-order-modal" class="text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            <h3 class="font-['Playfair_Display'] text-3xl text-gray-900 mb-4 text-center">Your Order</h3>
+            <div id="basket-items-list" class="mb-6 max-h-60 overflow-y-auto custom-scrollbar pr-2">
+                </div>
+            <div class="flex items-center mb-6">
+                <label for="table-number" class="text-gray-800 text-lg mr-4">Table Number:</label>
+                <input type="number" id="table-number" placeholder="e.g., 5" class="flex-grow p-3 rounded-lg bg-gray-100 text-gray-900 border border-[#a87f4c] focus:outline-none focus:border-gray-800"/>
+            </div>
+            <p class="text-right text-2xl text-[#a87f4c] font-bold mb-6">Total: <span id="order-total">0 DT</span></p>
+            <button id="confirm-order-btn" class="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
+                <i class="fas fa-check-circle"></i> Confirm Order
+            </button>
+            
+        </div>
+    </div>
+
+    <div id="bill-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden p-4">
+        <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-md transform scale-95 transition-transform duration-300 relative">
+            <button id="close-bill-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+            <h3 class="font-['Playfair_Display'] text-4xl text-gray-900 mb-6 text-center border-b pb-3 border-[#a87f4c]">Your Bill</h3>
+            <div id="bill-details" class="text-gray-800 mb-6">
+                </div>
+            <p class="text-right text-3xl text-[#a87f4c] font-bold mt-6 pt-4 border-t border-[#a87f4c]">Total: <span id="final-bill-total"></span> DT</p>
+            <p class="text-center text-gray-500 text-sm mt-4">Thank you for your order!</p>
+        </div>
+    </div>
+
+    <div id="toast-notification" class="fixed bottom-8 left-1/2 -translate-x-1/2 px-6 py-3 rounded-lg shadow-lg opacity-0 transition-opacity duration-300 z-50" style="background-color: #a87f4c; color: white;">
+        <p id="toast-message" class="flex items-center gap-2 text-lg"></p>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
