@@ -549,7 +549,7 @@ body {
     /* --- TOAST NOTIFICATION MODIFICATION FOR MOBILE (FINAL FIX) --- */
     #toast-notification {
         /* Align its bottom with the basket icon's bottom */
-        bottom: 1rem; /* The 'bottom-8' (32px) of the basket icon translates to this */
+        bottom: 1.75rem; /* The 'bottom-8' (32px) of the basket icon translates to this */
         
         /* Calculate 'right' position to place it just left of the icon */
         /* Assuming basket-icon has 'right: 1rem' (16px) and its total width on this screen is approx 64px (2rem) */
@@ -561,7 +561,7 @@ body {
            The left edge of the padded *touch area* is right: 1rem + (2 * 1.25rem) = 3.5rem.
            So, let's position the toast's right edge at this value plus a gap.
         */
-        right: calc(1rem + 2.5rem + 0.5rem); /* icon-right-offset + icon-effective-width + desired-gap */
+        right: calc(3.5rem + 2.5rem + 0.5rem); /* icon-right-offset + icon-effective-width + desired-gap */
                                            /* 1rem (tailwind right-1 from icon parent) + (1.25rem padding * 2 + ~2rem icon size) + 0.5rem gap */
                                            /* This implies the basket icon is approx 2.5rem wide. */
         
@@ -624,8 +624,8 @@ body {
 
     /* --- TOAST NOTIFICATION FOR VERY SMALL PHONES (480px) --- */
     #toast-notification {
-        bottom: 1rem; /* Same as icon */
-        right: calc(1rem + 1.5rem + 0.5rem); /* icon-right (1rem) + icon-approx-width (1.5rem for small icon) + gap (0.5rem) */
+        bottom: 1.75rem; /* Same as icon */
+        right: calc(3.5rem + 1.5rem + 0.5rem); /* icon-right (1rem) + icon-approx-width (1.5rem for small icon) + gap (0.5rem) */
                                            /* This will place its right edge to the left of the icon */
         max-width: calc(100% - 5rem); /* Adjust max-width if needed for very small screens */
         padding: 0.5rem 0.8rem;
