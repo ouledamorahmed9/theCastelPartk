@@ -38,10 +38,10 @@
             <span class="text-3xl text-[#a87f4c] ml-4"><i class="fas fa-star"></i></span>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 menu-grid">
-            <div class="menu-item-card" data-name="Steak" data-price="9" data-image="img/OurPlate4.webp" data-description="A perfectly grilled steak, served with a side of crispy fries and fresh vegetables. Cooked to your preference."></div>
-            <div class="menu-item-card" data-name="Pasta" data-price="9" data-image="img/OurPlate1.jpg" data-description="Delicious pasta tossed in a rich tomato sauce with fresh basil and parmesan cheese."></div>
-            <div class="menu-item-card" data-name="Fried Rice" data-price="9" data-image="img/OurPlate2.jpg" data-description="Savory fried rice with a mix of fresh vegetables, tender chicken, and a hint of soy."></div>
-            <div class="menu-item-card" data-name="Lasagna" data-price="9" data-image="img/OurPlate3.jpg" data-description="Layers of rich meat sauce, creamy béchamel, and al dente pasta, baked to perfection."></div>
+            <div class="menu-item-card" data-name="Steak" data-price="9" data-description="A perfectly grilled steak, served with a side of crispy fries and fresh vegetables. Cooked to your preference."></div>
+            <div class="menu-item-card" data-name="Pasta" data-price="9" data-description="Delicious pasta tossed in a rich tomato sauce with fresh basil and parmesan cheese."></div>
+            <div class="menu-item-card" data-name="Fried Rice" data-price="9" data-description="Savory fried rice with a mix of fresh vegetables, tender chicken, and a hint of soy."></div>
+            <div class="menu-item-card" data-name="Lasagna" data-price="9" data-description="Layers of rich meat sauce, creamy béchamel, and al dente pasta, baked to perfection."></div>
         </div>
     </section>
 
@@ -52,10 +52,10 @@
             <span class="text-3xl text-[#a87f4c] ml-4"><i class="fas fa-star"></i></span>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 menu-grid">
-            <div class="menu-item-card" data-name="Coffee" data-price="9" data-image="img/Coffee.jpg" data-description="A rich and aromatic cup of freshly brewed coffee, perfect to start your day or as an after-meal treat."></div>
-            <div class="menu-item-card" data-name="Mocktail" data-price="9" data-image="img/Mocktail.jpg" data-description="Refreshing non-alcoholic mocktail, a delightful blend of tropical fruits and sparkling water."></div>
-            <div class="menu-item-card" data-name="Juice" data-price="9" data-image="img/Juice.jpg" data-description="Freshly squeezed fruit juice, choose from orange, apple, or a mix of berries."></div>
-            <div class="menu-item-card" data-name="Soda" data-price="9" data-image="img/Soda.jpg" data-description="Classic refreshing soda, available in various popular flavors."></div>
+            <div class="menu-item-card" data-name="Coffee" data-price="9" data-description="A rich and aromatic cup of freshly brewed coffee, perfect to start your day or as an after-meal treat."></div>
+            <div class="menu-item-card" data-name="Mocktail" data-price="9" data-description="Refreshing non-alcoholic mocktail, a delightful blend of tropical fruits and sparkling water."></div>
+            <div class="menu-item-card" data-name="Juice" data-price="9" data-description="Freshly squeezed fruit juice, choose from orange, apple, or a mix of berries."></div>
+            <div class="menu-item-card" data-name="Soda" data-price="9" data-description="Classic refreshing soda, available in various popular flavors."></div>
         </div>
     </section>
 
@@ -66,10 +66,10 @@
             <span class="text-3xl text-[#a87f4c] ml-4"><i class="fas fa-star"></i></span>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 menu-grid">
-            <div class="menu-item-card" data-name="Creme Brulee" data-price="9" data-image="img/creme.jpg" data-description="Classic French dessert with a rich custard base topped with a layer of hardened caramelized sugar."></div>
-            <div class="menu-item-card" data-name="Pudding" data-price="9" data-image="img/Pudding.jpg" data-description="Creamy and delicious pudding, a comforting sweet treat."></div>
-            <div class="menu-item-card" data-name="Cookies" data-price="9" data-image="img/Cookies.jpg" data-description="Freshly baked assorted cookies, perfect with coffee or tea."></div>
-            <div class="menu-item-card" data-name="Ice Cream" data-price="9" data-image="img/Ice Cream.jpg" data-description="A scoop of rich, creamy ice cream. Choose from vanilla, chocolate, or strawberry."></div>
+            <div class="menu-item-card" data-name="Creme Brulee" data-price="9" data-description="Classic French dessert with a rich custard base topped with a layer of hardened caramelized sugar."></div>
+            <div class="menu-item-card" data-name="Pudding" data-price="9" data-description="Creamy and delicious pudding, a comforting sweet treat."></div>
+            <div class="menu-item-card" data-name="Cookies" data-price="9" data-description="Freshly baked assorted cookies, perfect with coffee or tea."></div>
+            <div class="menu-item-card" data-name="Ice Cream" data-price="9" data-description="A scoop of rich, creamy ice cream. Choose from vanilla, chocolate, or strawberry."></div>
         </div>
     </section>
 
@@ -90,28 +90,33 @@
         &copy; <span id="current-year"></span> The Castle Park. All rights reserved.
     </footer>
 
-    <div id="basket-icon" class="fixed bottom-8 right-8 bg-black hover:bg-gray-800 text-white p-4 rounded-full shadow-lg cursor-pointer hover:scale-105 transition-all z-50">
+    <div id="basket-icon" class="fixed bottom-8 right-8 bg-black text-white p-4 rounded-full shadow-lg cursor-pointer hover:scale-105 transition-transform z-50">
         <i class="fas fa-shopping-basket text-2xl"></i>
         <span id="basket-count" class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center -mt-1 -mr-1 hidden">0</span>
     </div>
 
     <div id="product-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden p-4">
-        <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-2xl transform scale-95 transition-transform duration-300">
+        <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-3xl transform scale-95 transition-transform duration-300">
             <div class="flex justify-end">
                 <button id="close-product-modal" class="text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
             </div>
             <div class="md:flex">
-                <div class="md:w-1/2 flex justify-center items-center mb-4 md:mb-0">
-                    <img id="modal-product-image" src="" alt="Product Image" class="w-full h-auto max-h-80 object-cover rounded-md">
+                <div class="md:w-1/2 flex flex-col items-center mb-4 md:mb-0 relative product-carousel-container">
+                    <div id="carousel-display" class="w-full h-80 bg-gray-100 rounded-md overflow-hidden relative">
+                        </div>
+                    <button id="carousel-prev" class="carousel-nav-btn absolute left-2 top-1/2 -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full opacity-75 hover:opacity-100 transition-opacity"><i class="fas fa-chevron-left"></i></button>
+                    <button id="carousel-next" class="carousel-nav-btn absolute right-2 top-1/2 -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full opacity-75 hover:opacity-100 transition-opacity"><i class="fas fa-chevron-right"></i></button>
+
+                    <div id="carousel-indicators" class="flex justify-center mt-4 gap-2">
+                        </div>
                 </div>
-                <div class="md:w-1/2 md:pl-6 text-gray-800">
+                <div class="md:w-1/2 md:pl-6 text-gray-800 flex flex-col">
                     <h3 id="modal-product-name" class="font-['Playfair_Display'] text-3xl text-gray-900 mb-2"></h3>
-                    <p id="modal-product-description" class="text-gray-600 text-sm mb-4"></p>
+                    <p id="modal-product-description" class="text-gray-600 text-sm mb-4 flex-grow"></p>
                     <p class="text-2xl text-[#a87f4c] font-bold mb-6"><span id="modal-product-price"></span> DT</p>
                     <button id="add-to-basket-btn" class="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
                         <i class="fas fa-cart-plus"></i> Add to Basket
                     </button>
-                    
                 </div>
             </div>
         </div>
@@ -127,24 +132,31 @@
                 </div>
             <div class="flex items-center mb-6">
                 <label for="table-number" class="text-gray-800 text-lg mr-4">Table Number:</label>
-                <input type="number" id="table-number" placeholder="e.g., 5" class="flex-grow p-3 rounded-lg bg-gray-100 text-gray-900 border border-[#a87f4c] focus:outline-none focus:border-gray-800"/>
-            </div>
-            <p class="text-right text-2xl text-[#a87f4c] font-bold mb-6">Total: <span id="order-total">0 DT</span></p>
+                <input type="number" id="table-number" value="1"  class="flex-grow p-3 rounded-lg bg-gray-100 text-gray-900 border border-[#a87f4c] focus:outline-none focus:border-gray-800"/>            </div>
+            <p class="text-right text-2xl text-black font-bold mb-6">Total: <span id="order-total">0 DT</span></p>
             <button id="confirm-order-btn" class="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
                 <i class="fas fa-check-circle"></i> Confirm Order
             </button>
-            
         </div>
     </div>
 
     <div id="bill-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden p-4">
-        <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-md transform scale-95 transition-transform duration-300 relative">
+        <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-md transform scale-95 transition-transform duration-300 relative bill-card">
             <button id="close-bill-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
-            <h3 class="font-['Playfair_Display'] text-4xl text-gray-900 mb-6 text-center border-b pb-3 border-[#a87f4c]">Your Bill</h3>
-            <div id="bill-details" class="text-gray-800 mb-6">
+            <div class="bill-header">
+                <h3 class="font-['Playfair_Display'] text-4xl text-gray-900 text-center mb-2">The Castle Park</h3>
+                <h4 class="font-['Playfair_Display'] text-2xl text-[#a87f4c] text-center mb-4">Your Bill</h4>
+                <p id="bill-table-number" class="text-gray-700 text-center text-lg mb-4"></p>
+                <div class="bill-divider"></div>
+            </div>
+
+            <div id="bill-details" class="text-gray-800 mb-6 bill-items-section">
                 </div>
-            <p class="text-right text-3xl text-[#a87f4c] font-bold mt-6 pt-4 border-t border-[#a87f4c]">Total: <span id="final-bill-total"></span> DT</p>
-            <p class="text-center text-gray-500 text-sm mt-4">Thank you for your order!</p>
+            
+            <div class="bill-divider"></div>
+            <p class="text-right text-3xl text-black font-bold mt-4 pt-4">Total: <span id="final-bill-total"></span> DT</p>
+            <p class="text-center text-gray-500 text-sm mt-6">Thank you for your order!</p>
+            <p class="text-center text-gray-500 text-xs mt-2">Visit us again soon!</p>
         </div>
     </div>
 

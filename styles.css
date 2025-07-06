@@ -156,13 +156,13 @@ body {
     border-top: 1px solid #a87f4c;
 }
 
-/* Custom scrollbar for modals */
+/* Custom scrollbar for modals (used in order modal and bill items) */
 .custom-scrollbar::-webkit-scrollbar {
     width: 8px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-    background: #2c1a12;
+    background: #f1f1f1; /* Lighter track for white background modals */
     border-radius: 10px;
 }
 
@@ -173,6 +173,107 @@ body {
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: #8f6d40;
+}
+
+/* --- Animations --- */
+@keyframes flyToBasket {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(calc(var(--dx) * 0.5), calc(var(--dy) * 0.5)) scale(0.7);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(var(--dx), var(--dy)) scale(0.1);
+        opacity: 0;
+    }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.3s ease-in-out;
+}
+
+/* --- Bill Modal Specific Styles --- */
+.bill-card {
+    border: 3px solid #a87f4c; /* Stronger border for the bill */
+    background: linear-gradient(to bottom, #ffffff, #f0f0f0); /* Subtle gradient */
+    padding: 2.5rem; /* More padding */
+    position: relative;
+    overflow: hidden; /* For pseudo-elements */
+}
+
+/* Decorative top border for the bill */
+.bill-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px; /* Height of the top decorative stripe */
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="%23a87f4c"><circle cx="50" cy="50" r="50"/></svg>') repeat-x top center;
+    background-size: 20px 20px; /* Size of the repeated pattern */
+    opacity: 0.1; /* Subtle overlay */
+    z-index: 0;
+}
+
+.bill-header {
+    position: relative; /* Ensure z-index works */
+    z-index: 1; /* Keep header above decorative elements */
+    margin-bottom: 1.5rem;
+}
+
+.bill-header h3 {
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Subtle text shadow for title */
+}
+
+.bill-divider {
+    border-bottom: 2px dashed #a87f4c; /* Dashed line for a bill look */
+    margin: 1.5rem 0; /* Spacing */
+    opacity: 0.6;
+}
+
+.bill-items-section {
+    max-height: 250px; /* Limit height for scrollability */
+    overflow-y: auto; /* Add scroll if many items */
+    padding-right: 10px; /* Space for scrollbar */
+}
+
+/* Specific styling for each item line in the bill */
+.bill-item-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Align price to bottom if text wraps */
+    font-size: 1.1rem;
+    color: #333;
+    padding: 0.5rem 0;
+    border-bottom: 1px dotted #e0e0e0; /* Lighter separator */
+}
+
+.bill-item-line:last-child {
+    border-bottom: none; /* No border for the last item */
+}
+
+.bill-item-name {
+    font-weight: 500;
+    color: #1a0f0a; /* Darker text for readability */
+    flex-grow: 1; /* Allow name to take up space */
+    margin-right: 10px; /* Space before price */
+}
+
+.bill-item-price {
+    font-weight: 700;
+    color: #a87f4c; /* Accent color for prices */
+    white-space: nowrap; /* Prevent price from wrapping */
 }
 
 
@@ -203,6 +304,19 @@ body {
         background-position: center; /* Adjust as needed: 'center top', 'center bottom' */
         height: 70vh; /* Adjust height for typical mobile screens */
     }
+
+    .bill-card {
+        padding: 1.5rem; /* Reduce padding on smaller screens */
+    }
+    .bill-header h3 {
+        font-size: 3rem; /* Adjust for smaller screens */
+    }
+    .bill-header h4 {
+        font-size: 1.8rem;
+    }
+    .bill-item-line {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -210,5 +324,99 @@ body {
         background-image: url('img/mobile.png'); /* Ensure it's applied to smaller phones too */
         background-position: center; /* Fine-tune for very small screens if needed */
         height: 70vh; /* Further adjust height for smaller phones */
+    }
+}
+/* --- Product Modal Carousel Styles --- */
+.product-carousel-container {
+    position: relative;
+}
+
+#carousel-display {
+    width: 100%;
+    height: 320px; /* Fixed height for consistency */
+    display: flex;
+    overflow: hidden; /* Hide extra images/videos */
+    position: relative;
+    border: 1px solid #e0e0e0; /* Subtle border */
+    background-color: #f8f8f8; /* Light background for empty state */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+
+#carousel-display .carousel-item {
+    min-width: 100%; /* Each item takes full width */
+    height: 100%;
+    object-fit: contain; /* Contain image within bounds */
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Smooth slide effect */
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0; /* Hidden by default */
+    pointer-events: none; /* Prevent interaction when hidden */
+}
+
+#carousel-display .carousel-item.active {
+    opacity: 1; /* Show active item */
+    pointer-events: auto; /* Allow interaction when active */
+    transform: translateX(0%); /* Reset transform for active item */
+}
+
+/* Transitions for slides */
+#carousel-display .carousel-item.prev-leaving {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+#carousel-display .carousel-item.next-leaving {
+    transform: translateX(100%);
+    opacity: 0;
+}
+#carousel-display .carousel-item.prev-entering {
+    transform: translateX(100%);
+}
+#carousel-display .carousel-item.next-entering {
+    transform: translateX(-100%);
+}
+
+
+.carousel-nav-btn {
+    z-index: 10; /* Ensure buttons are above images */
+}
+
+#carousel-indicators .indicator-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px solid #a87f4c;
+}
+
+#carousel-indicators .indicator-dot.active {
+    background-color: #a87f4c; /* Accent color for active dot */
+    transform: scale(1.2); /* Slightly larger active dot */
+}
+
+/* For video elements within the carousel */
+#carousel-display video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensure video fits */
+}
+
+/* Media Queries for Responsive Design (Add these to the existing media queries) */
+@media (max-width: 768px) {
+    #carousel-display {
+        height: 250px; /* Adjust carousel height for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    #carousel-display {
+        height: 200px; /* Adjust carousel height for phones */
+    }
+    .carousel-nav-btn {
+        padding: 0.5rem; /* Smaller buttons */
+        font-size: 0.8rem;
     }
 }
