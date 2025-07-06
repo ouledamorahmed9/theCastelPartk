@@ -404,30 +404,29 @@ body {
     object-fit: contain; /* Ensure video fits */
 }
 
-/* Toast Notification (Modified for position and animation) */
+/* Toast Notification (Desktop/Larger screens) */
 #toast-notification {
     position: fixed;
-    bottom: 2rem; /* Aligns with the basket icon's bottom */
-    right: 7rem;  /* Puts it to the left of the basket icon, adjust as needed */
+    bottom: 2rem;
+    right: 7rem;
     
-    padding: 0.75rem 1.5rem; /* px-6 py-3 from Tailwind */
-    border-radius: 0.5rem; /* rounded-lg from Tailwind */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg from Tailwind */
-    z-index: 50; /* z-50 from Tailwind */
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    z-index: 50;
     
-    background-color: #a87f4c; /* Your accent color */
+    background-color: #a87f4c;
     color: white;
     white-space: nowrap; /* Prevent text from wrapping too early on desktop */
 
-    /* Animation properties for desktop */
-    opacity: 0; /* Hidden by default */
-    transform: translateX(20px); /* Starts slightly to the right */
+    opacity: 0;
+    transform: translateX(20px); /* Slides from right */
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 #toast-notification.opacity-100 {
-    opacity: 1; /* Show when active */
-    transform: translateX(0); /* Slide into position */
+    opacity: 1;
+    transform: translateX(0);
 }
 
 /* Specific styling for the Table Number Input */
@@ -466,33 +465,32 @@ body {
 /* --- Media Queries for Responsive Design --- */
 @media (max-width: 768px) {
     .section-title {
-        font-size: 2.5rem; /* Slightly smaller for tablets */
+        font-size: 2.5rem;
     }
 
     .menu-grid {
-        /* On tablets, allow 2 columns, but still responsive */
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 
     /* Header Nav for Mobile */
     .header-nav {
-        flex-direction: row; /* Keep elements in a row */
-        justify-content: space-between; /* Space out logo and toggle */
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
-        padding: 0.75rem 1.5rem; /* More compact padding */
-        position: fixed; /* Keep it fixed at the top */
+        padding: 0.75rem 1.5rem;
+        position: fixed;
         width: 100%;
         top: 0;
         left: 0;
-        box-sizing: border-box; /* Include padding in width */
+        box-sizing: border-box;
     }
 
     .nav-links {
-        display: none; /* Hide desktop nav links */
+        display: none;
     }
 
     .menu-toggle {
-        display: block; /* Show hamburger icon */
+        display: block;
     }
 
     /* Adjust logo size for mobile */
@@ -503,23 +501,23 @@ body {
 
     /* Mobile specific background image for hero section */
     .hero-section {
-        background-image: url('img/theCastle.jpg'); /* Your provided image */
+        background-image: url('img/theCastle.jpg');
         background-size: cover;
         background-position: center;
-        height: 70vh; /* Adjust height for typical mobile screens */
-        margin-top: 5rem; /* Account for fixed header */
+        height: 70vh;
+        margin-top: 5rem;
     }
 
     .section-container {
-        padding: 1.5rem; /* Reduce padding for sections */
-        margin: 1.5rem auto; /* Reduce margin */
+        padding: 1.5rem;
+        margin: 1.5rem auto;
     }
 
     .bill-card {
-        padding: 1.5rem; /* Reduce padding on smaller screens */
+        padding: 1.5rem;
     }
     .bill-header h3 {
-        font-size: 3rem; /* Adjust for smaller screens */
+        font-size: 3rem;
     }
     .bill-header h4 {
         font-size: 1.8rem;
@@ -529,7 +527,7 @@ body {
     }
 
     #carousel-display {
-        height: 250px; /* Adjust carousel height for tablets */
+        height: 250px;
     }
 
     /* Basket icon touch target on mobile */
@@ -542,75 +540,71 @@ body {
 
     /* Table Number Input on mobile */
     #order-modal .flex.items-center.mb-6 label {
-        min-width: unset; /* Remove min-width on tablets/smaller screens */
-        text-align: center; /* Center label on small screens */
-        width: 100%; /* Make label take full width */
-        margin-bottom: 0.5rem; /* Add space below label */
+        min-width: unset;
+        text-align: center;
+        width: 100%;
+        margin-bottom: 0.5rem;
     }
 
-    /* --- TOAST NOTIFICATION MODIFICATION FOR MOBILE --- */
+    /* --- TOAST NOTIFICATION MODIFICATION FOR MOBILE (FINAL FIX) --- */
     #toast-notification {
-        bottom: 1rem; /* Adjust bottom distance from viewport edge */
-        /* Instead of 'right', let's use 'left' with a calc for consistent offset from right */
-        right: auto; /* Reset right property */
-        left: 1rem; /* Give it a consistent left padding from the edge */
+        /* Align its bottom with the basket icon's bottom */
+        bottom: 1rem; /* The 'bottom-8' (32px) of the basket icon translates to this */
         
-        /* The width should accommodate content but not overflow */
-        max-width: calc(100% - 2rem); /* 100% minus left and right padding */
+        /* Calculate 'right' position to place it just left of the icon */
+        /* Assuming basket-icon has 'right: 1rem' (16px) and its total width on this screen is approx 64px (2rem) */
+        /* So, right edge of toast = (basket icon's right edge + basket icon width + desired gap) */
+        /* Let's try 1rem (basket margin) + 4rem (approx icon total size) + 0.5rem (gap) = 5.5rem from right */
+        /* Or, based on its .basket-icon { right: 1rem; padding: 1.25rem; font-size: 2rem; }
+           The effective right edge of the *visual icon itself* is right: 1rem.
+           The right edge of the padded *touch area* is right: 1rem.
+           The left edge of the padded *touch area* is right: 1rem + (2 * 1.25rem) = 3.5rem.
+           So, let's position the toast's right edge at this value plus a gap.
+        */
+        right: calc(1rem + 2.5rem + 0.5rem); /* icon-right-offset + icon-effective-width + desired-gap */
+                                           /* 1rem (tailwind right-1 from icon parent) + (1.25rem padding * 2 + ~2rem icon size) + 0.5rem gap */
+                                           /* This implies the basket icon is approx 2.5rem wide. */
         
-        white-space: normal; /* Allow text to wrap on multiple lines */
-        text-align: center; /* Center the text */
+        left: auto; /* Ensure it calculates from the right */
         
-        /* Simpler fade animation for mobile to avoid transform issues with auto width/positioning */
-        transform: none; /* Remove translateX transform */
+        /* General styling */
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+        white-space: normal; /* Allow text to wrap */
+        text-align: center;
+        max-width: calc(100% - 6rem); /* Limit width, leaving enough space from left */
+
+        /* Simpler fade animation for mobile */
+        transform: none; /* No translation */
         transition: opacity 0.3s ease-in-out; /* Only opacity transition */
-        
-        padding: 0.6rem 1rem; /* More compact padding for toast on mobile */
-        font-size: 0.9rem; /* Smaller font for toast on mobile */
-
-        /* To place it precisely left of the icon, we need to know the icon's width.
-           Let's aim for 'right' again but with a dynamic calculation or a fixed value
-           that accounts for the icon. Given the complexity of precise dynamic calc
-           with mixed units, let's simplify to a more robust fixed offset or center.
-           For "left of icon", 'right' is actually the best property.
-           Let's re-evaluate the right property: */
-        right: calc(32px + 2rem + 0.5rem); /* icon-right-offset (tailwind p-8 = 32px) + icon-width (approx 2rem or 32px) + desired-gap (0.5rem or 8px) = 72px */
-        /* Let's try 5rem (80px) from right for simple placement.
-           This means the left edge of the toast will start from `right: 5rem`. */
-        right: 5rem; /* This places its right edge 5rem from viewport right edge */
-        left: unset; /* Reset left from the previous attempt */
     }
 
-    /* On mobile, we only need opacity transition */
-    #toast-notification.opacity-0 {
-        transform: none; /* No transform when hidden */
-    }
-    #toast-notification.opacity-100 {
-        transform: none; /* No transform when visible */
-    }
+    /* Ensure opacity classes work */
+    #toast-notification.opacity-0 { opacity: 0; }
+    #toast-notification.opacity-100 { opacity: 1; }
 }
 
 @media (max-width: 480px) {
     .hero-section {
-        background-image: url('img/mobile.png'); /* Ensure it's applied to smaller phones too */
-        background-position: center; /* Fine-tune for very small screens if needed */
-        height: 70vh; /* Further adjust height for smaller phones */
+        background-image: url('img/mobile.png');
+        background-position: center;
+        height: 70vh;
     }
     .section-title {
-        font-size: 2rem; /* Even smaller for very small phones */
+        font-size: 2rem;
     }
     .menu-grid {
-        grid-template-columns: 1fr; /* Single column layout for most phones */
+        grid-template-columns: 1fr;
     }
     #carousel-display {
-        height: 180px; /* Adjust carousel height for phones */
+        height: 180px;
     }
     .carousel-nav-btn {
-        padding: 0.4rem; /* Smaller buttons */
+        padding: 0.4rem;
         font-size: 0.7rem;
     }
     .bill-header h3 {
-        font-size: 2.5rem; /* Smaller bill title for very small screens */
+        font-size: 2.5rem;
     }
     .bill-header h4 {
         font-size: 1.5rem;
@@ -628,17 +622,13 @@ body {
         font-size: 0.65rem;
     }
 
-    /* Further refine toast for very small screens if needed, 
-       but the 768px query should handle most phones. */
+    /* --- TOAST NOTIFICATION FOR VERY SMALL PHONES (480px) --- */
     #toast-notification {
-        /* On very small phones, it might be better to just center it horizontally
-           if 'right' causes issues, or make it narrower */
-        right: 1rem; /* keep it fixed relative to right edge */
-        max-width: calc(100% - 2rem); /* Ensure it stays within bounds */
-        /* If centering is preferred on very small screens: */
-        /* left: 50%;
-           transform: translateX(-50%);
-           right: auto;
-           white-space: normal; */
+        bottom: 1rem; /* Same as icon */
+        right: calc(1rem + 1.5rem + 0.5rem); /* icon-right (1rem) + icon-approx-width (1.5rem for small icon) + gap (0.5rem) */
+                                           /* This will place its right edge to the left of the icon */
+        max-width: calc(100% - 5rem); /* Adjust max-width if needed for very small screens */
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
     }
 }
