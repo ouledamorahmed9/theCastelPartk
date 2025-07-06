@@ -277,55 +277,6 @@ body {
 }
 
 
-/* Media Queries for Responsive Design */
-@media (max-width: 768px) {
-    .section-title {
-        font-size: 2.5rem;
-    }
-
-    .menu-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-
-    .nav-links {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .header-nav {
-        position: static;
-        width: auto;
-    }
-
-    /* Mobile specific background image for hero section */
-    .hero-section {
-        background-image: url('img/theCastle.jpg'); /* Your provided image */
-        background-size: cover;
-        background-position: center; /* Adjust as needed: 'center top', 'center bottom' */
-        height: 70vh; /* Adjust height for typical mobile screens */
-    }
-
-    .bill-card {
-        padding: 1.5rem; /* Reduce padding on smaller screens */
-    }
-    .bill-header h3 {
-        font-size: 3rem; /* Adjust for smaller screens */
-    }
-    .bill-header h4 {
-        font-size: 1.8rem;
-    }
-    .bill-item-line {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-section {
-        background-image: url('img/mobile.png'); /* Ensure it's applied to smaller phones too */
-        background-position: center; /* Fine-tune for very small screens if needed */
-        height: 70vh; /* Further adjust height for smaller phones */
-    }
-}
 /* --- Product Modal Carousel Styles --- */
 .product-carousel-container {
     position: relative;
@@ -404,14 +355,103 @@ body {
     object-fit: contain; /* Ensure video fits */
 }
 
-/* Media Queries for Responsive Design (Add these to the existing media queries) */
+/* Toast Notification (Modified for position and animation) */
+#toast-notification {
+    position: fixed;
+    bottom: 2rem; /* Aligns with the basket icon's bottom */
+    right: 7rem;  /* Puts it to the left of the basket icon, adjust as needed */
+    
+    padding: 0.75rem 1.5rem; /* px-6 py-3 from Tailwind */
+    border-radius: 0.5rem; /* rounded-lg from Tailwind */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg from Tailwind */
+    z-index: 50; /* z-50 from Tailwind */
+    
+    background-color: #a87f4c; /* Your accent color */
+    color: white;
+    white-space: nowrap; /* Prevent text from wrapping too early */
+
+    /* Animation properties */
+    opacity: 0; /* Hidden by default */
+    transform: translateX(20px); /* Starts slightly to the right */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+#toast-notification.opacity-100 {
+    opacity: 1; /* Show when active */
+    transform: translateX(0); /* Slide into position */
+}
+
+
+/* --- Media Queries for Responsive Design --- */
 @media (max-width: 768px) {
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .header-nav {
+        position: static;
+        width: auto;
+    }
+
+    /* Mobile specific background image for hero section */
+    .hero-section {
+        background-image: url('img/theCastle.jpg'); /* Your provided image */
+        background-size: cover;
+        background-position: center; /* Adjust as needed: 'center top', 'center bottom' */
+        height: 70vh; /* Adjust height for typical mobile screens */
+    }
+
+    .bill-card {
+        padding: 1.5rem; /* Reduce padding on smaller screens */
+    }
+    .bill-header h3 {
+        font-size: 3rem; /* Adjust for smaller screens */
+    }
+    .bill-header h4 {
+        font-size: 1.8rem;
+    }
+    .bill-item-line {
+        font-size: 1rem;
+    }
+
     #carousel-display {
         height: 250px; /* Adjust carousel height for tablets */
+    }
+
+    /* Adjust toast notification for smaller screens */
+    #toast-notification {
+        bottom: 1rem; /* Slightly lower on mobile */
+        right: 1rem; /* Closer to the edge */
+        left: auto; /* Ensure it stays to the right */
+        transform: translateX(0); /* Disable initial translateX for simple fade if space is tight */
+        white-space: normal; /* Allow wrapping on small screens */
+        max-width: calc(100% - 2rem); /* Max width to prevent overflow */
+        text-align: center;
+    }
+
+    #toast-notification.opacity-0 {
+        transform: translateX(0); /* Just fade out on mobile */
+    }
+    #toast-notification.opacity-100 {
+        transform: translateX(0); /* Just fade in on mobile */
     }
 }
 
 @media (max-width: 480px) {
+    .hero-section {
+        background-image: url('img/mobile.png'); /* Ensure it's applied to smaller phones too */
+        background-position: center; /* Fine-tune for very small screens if needed */
+        height: 70vh; /* Further adjust height for smaller phones */
+    }
     #carousel-display {
         height: 200px; /* Adjust carousel height for phones */
     }
